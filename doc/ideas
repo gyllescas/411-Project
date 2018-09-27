@@ -1,0 +1,5 @@
+Movie & beer: 
+We planned on using a movie database API as well as a database with various alcoholic beverages in order to recommend movies and drinks. We'll collect users' information on favorite types of genres and movies as well as alcoholic beverages to create individualized recommendations.
+
+Centralized news: 
+We'll use databases from various news API such as Fox, CNN, etc. in order to present to our users a centralized view on a story from multiple news sources. By collecting information about our users, we will better present the types of stories based on their topics of interest to help our users.
