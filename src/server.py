@@ -1,13 +1,12 @@
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 from flask import Flask, render_template, flash, request
-from movie import *
-from beer import *
+from cache import process_input
 
 # App config.
 DEBUG = True
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config['SECRET_KEY'] = '' # removed
+app.config['SECRET_KEY'] = ''
 
 class ReusableForm(Form):
     name = TextField('Movie Name:', validators=[validators.required()])
@@ -21,12 +20,7 @@ def beer_movie():
         name = request.form['name']
 
         if form.validate():
-            try:
-                movie = five_rec(name)
-                beer = get_beer()
-                flash(movie + " --> " + beer)
-            except:
-                flash("Movie not found!")
+            flash(process_input(name))
         else:
             flash('All the form fields are required.')
 
