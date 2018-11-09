@@ -40,7 +40,8 @@ def process_input(movie_name):
     cached = in_cache(movie_name)
     if not cached:
         output = api_query(movie_name)
-        cache_set(movie_name, output)
+        expire = 86400 if output=="Movie not found!" else 604800
+        cache_set(movie_name, output, expire)
         return output
     else:
         time_left = cache.ttl(movie_name)
